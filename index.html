@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>KSM Events | Event Management</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="bg" aria-hidden="true">
+      <span class="blob b1"></span>
+      <span class="blob b2"></span>
+      <span class="blob b3"></span>
+      <span class="grid"></span>
+    </div>
+
+    <header class="header" id="top">
+      <nav class="nav">
+        <a class="brand" href="#home" aria-label="KSM Events Home">
+          <span class="brand-mark" aria-hidden="true">✦</span>
+          <span class="brand-text">KSM Events</span>
+        </a>
+
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="Open menu"
+          aria-expanded="false"
+        >
+          <span></span><span></span><span></span>
+        </button>
+
+        <ul class="nav-links" id="navLinks">
+          <li><a class="nav-link active" href="#home">Home</a></li>
+          <li><a class="nav-link" href="#about">About</a></li>
+          <li><a class="nav-link" href="#contact">Contat ous</a></li>
+
+          <li class="dropdown" id="servicesDropdown">
+            <button
+              class="nav-link dropdown-btn"
+              type="button"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Services <span class="caret" aria-hidden="true"></span>
+            </button>
+
+            <div class="dropdown-menu" role="menu" aria-label="Services menu">
+              <button
+                class="dropdown-item"
+                type="button"
+                data-service="corporate"
+              >
+                Corporate Event
+              </button>
+              <button
+                class="dropdown-item"
+                type="button"
+                data-service="function"
+              >
+                Function Event
+              </button>
+              <button class="dropdown-item" type="button" data-service="party">
+                Party Event
+              </button>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="home">
+        <div class="hero-content">
+          <div class="eyebrow">
+            <span class="spark" aria-hidden="true">⚡</span>
+            <span>Plan. Design. Celebrate.</span>
+          </div>
+
+          <h1 class="hero-title">
+            Make your next event
+            <span class="gradient-text"> unforgettable</span>.
+          </h1>
+
+          <p class="hero-subtitle">
+            From corporate meets to parties and celebrations—KSM Events brings
+            creative themes, smooth execution, and memorable experiences.
+          </p>
+
+          <div class="hero-cta">
+            <a class="btn primary" href="#services" role="button"
+              >Explore Services</a
+            >
+            <a class="btn ghost" href="#contact" role="button">Get a Quote</a>
+          </div>
+
+          <div class="hero-stats" aria-label="Highlights">
+            <div class="stat">
+              <div class="stat-num" data-count="120">120</div>
+              <div class="stat-label">Events Delivered</div>
+            </div>
+            <div class="stat">
+              <div class="stat-num" data-count="98">98</div>
+              <div class="stat-label">Client Satisfaction</div>
+            </div>
+            <div class="stat">
+              <div class="stat-num" data-count="24">24</div>
+              <div class="stat-label">Support Hours</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-card" aria-hidden="true">
+          <div class="card-glow"></div>
+          <div class="hero-card-inner">
+            <h3>Today’s Theme</h3>
+            <p class="muted">Neon Lights • Premium Stage • Live Sound</p>
+            <div class="pill-row">
+              <span class="pill">Stage Setup</span>
+              <span class="pill">Decoration</span>
+              <span class="pill">Catering</span>
+            </div>
+            <div class="mini-meter">
+              <div class="meter-label">Hype Level</div>
+              <div class="meter"><span class="meter-fill"></span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="about">
+        <div class="section-head">
+          <h2>About KSM Events</h2>
+          <p>
+            We turn ideas into polished experiences. Our team manages planning,
+            vendor coordination, creative direction, and on-day execution.
+          </p>
+        </div>
+
+        <div class="cards">
+          <article class="info-card reveal">
+            <div class="icon" aria-hidden="true">🎯</div>
+            <h3>Smart Planning</h3>
+            <p>
+              Schedules, checklists, and timelines—so everything runs smoothly.
+            </p>
+          </article>
+
+          <article class="info-card reveal">
+            <div class="icon" aria-hidden="true">🎨</div>
+            <h3>Creative Design</h3>
+            <p>Unique themes and decor that match your vision and brand.</p>
+          </article>
+
+          <article class="info-card reveal">
+            <div class="icon" aria-hidden="true">🤝</div>
+            <h3>Reliable Execution</h3>
+            <p>We coordinate with vendors to keep your event on track.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="services">
+        <div class="section-head">
+          <h2>Services</h2>
+          <p>
+            Select a service type from the dropdown to see featured details.
+          </p>
+        </div>
+
+        <div class="service-grid">
+          <article class="service-card reveal" data-service-card="corporate">
+            <div class="service-top">
+              <div class="service-badge">Corporate Event</div>
+              <div class="service-title">Professional & Polished</div>
+              <p class="service-desc">
+                Seminars, team meetings, product launches, and conferences with
+                premium stage & presentation support.
+              </p>
+              <ul class="service-list">
+                <li>Stage + AV setup</li>
+                <li>Branding & banners</li>
+                <li>Registration & scheduling</li>
+              </ul>
+              <button
+                class="btn small"
+                type="button"
+                data-service-request="corporate"
+              >
+                Request Corporate Quote
+              </button>
+            </div>
+          </article>
+
+          <article class="service-card reveal" data-service-card="function">
+            <div class="service-top">
+              <div class="service-badge">Function Event</div>
+              <div class="service-title">Balanced & Memorable</div>
+              <p class="service-desc">
+                Weddings, anniversaries, award nights, and celebrations—designed
+                for comfort, flow, and unforgettable moments.
+              </p>
+              <ul class="service-list">
+                <li>Decor & theme styling</li>
+                <li>Guest management</li>
+                <li>Photography coordination</li>
+              </ul>
+              <button
+                class="btn small"
+                type="button"
+                data-service-request="function"
+              >
+                Request Function Quote
+              </button>
+            </div>
+          </article>
+
+          <article class="service-card reveal" data-service-card="party">
+            <div class="service-top">
+              <div class="service-badge">Party Event</div>
+              <div class="service-title">Loud, Fun & Live</div>
+              <p class="service-desc">
+                Birthday bashes, house parties, DJ nights, and themed
+                events—with energy, lighting, and entertainment.
+              </p>
+              <ul class="service-list">
+                <li>Lighting & sound</li>
+                <li>DJ / emcee support</li>
+                <li>Games & activities</li>
+              </ul>
+              <button
+                class="btn small"
+                type="button"
+                data-service-request="party"
+              >
+                Request Party Quote
+              </button>
+            </div>
+          </article>
+        </div>
+
+        <div
+          class="feature-strip reveal"
+          id="serviceFeature"
+          aria-live="polite"
+        >
+          <div class="strip-icon" aria-hidden="true">✨</div>
+          <div class="strip-text">
+            <div class="strip-title" id="featureTitle">
+              Featured: Corporate Event
+            </div>
+            <div class="strip-desc" id="featureDesc">
+              Tap the Services dropdown to switch the featured highlight
+              instantly.
+            </div>
+          </div>
+        </div>
+
+        <div class="section-head" style="margin-top: 22px">
+          <h2>Gallery</h2>
+          <p>
+            Auto-fit responsive animated tiles (demo). Replace tiles with real
+            images anytime.
+          </p>
+        </div>
+
+        <div class="gallery" aria-label="Event gallery">
+          <div class="gallery-item reveal">
+            <div class="gallery-item-inner">
+              <div class="gallery-title">Corporate Glow</div>
+              <div class="gallery-tag">Stage + AV</div>
+            </div>
+          </div>
+          <div class="gallery-item reveal">
+            <div class="gallery-item-inner">
+              <div class="gallery-title">Function Moments</div>
+              <div class="gallery-tag">Decor & flow</div>
+            </div>
+          </div>
+          <div class="gallery-item reveal">
+            <div class="gallery-item-inner">
+              <div class="gallery-title">Party Energy</div>
+              <div class="gallery-tag">DJ night</div>
+            </div>
+          </div>
+          <div class="gallery-item reveal">
+            <div class="gallery-item-inner">
+              <div class="gallery-title">Award Nights</div>
+              <div class="gallery-tag">Emcee support</div>
+            </div>
+          </div>
+          <div class="gallery-item reveal">
+            <div class="gallery-item-inner">
+              <div class="gallery-title">Celebration Themes</div>
+              <div class="gallery-tag">Lighting & style</div>
+            </div>
+          </div>
+          <div class="gallery-item reveal">
+            <div class="gallery-item-inner">
+              <div class="gallery-title">Seamless Run-of-Show</div>
+              <div class="gallery-tag">On-day control</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="note reveal">
+          Note: This demo uses animated gradient tiles as a gallery to keep the
+          project fully self-contained (no image downloads).
+        </div>
+      </section>
+
+      <section class="section contact" id="contact">
+        <div class="section-head">
+          <h2>Contat ous</h2>
+          <p>Send your details. We’ll respond with an event plan and quote.</p>
+        </div>
+
+        <div class="contact-grid">
+          <form class="contact-form" id="contactForm">
+            <label>
+              <span>Name</span>
+              <input type="text" name="name" placeholder="Your name" required />
+            </label>
+
+            <label>
+              <span>Email</span>
+              <input
+                type="email"
+                name="email"
+                placeholder="you@example.com"
+                required
+              />
+            </label>
+
+            <label>
+              <span>Event Type</span>
+              <select name="type" id="eventTypeSelect" required>
+                <option value="" selected disabled>Select event type</option>
+                <option value="corporate">Corporate Event</option>
+                <option value="function">Function Event</option>
+                <option value="party">Party Event</option>
+              </select>
+            </label>
+
+            <label>
+              <span>Message</span>
+              <textarea
+                name="message"
+                placeholder="Tell us about your event..."
+                rows="5"
+                required
+              ></textarea>
+            </label>
+
+            <div class="form-actions">
+              <button class="btn primary" type="submit">Submit Request</button>
+              <div class="form-hint">
+                Demo form (no backend). Your message will be simulated.
+              </div>
+            </div>
+          </form>
+
+          <aside class="contact-panel reveal" aria-hidden="true">
+            <div class="panel-card">
+              <div class="panel-title">Fast Response</div>
+              <div class="panel-line">📞 +91 90000 00000</div>
+              <div class="panel-line">✉️ hello@eventsphere.com</div>
+              <div class="panel-line">⏰ Mon-Sun • 10:00 AM - 10:00 PM</div>
+              <div class="panel-divider"></div>
+              <div class="panel-sub">
+                We’ll help you pick the right package and timeline.
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div class="footer-inner">
+          <div class="footer-brand">
+            <span class="brand-mark" aria-hidden="true">✦</span>
+            KSM Events
+          </div>
+
+          <div class="footer-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contat ous</a>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div class="developed">
+            Developed by <span class="developed-name">Swapnil</span>
+          </div>
+
+          <div class="mascot-wrap" aria-label="Animated mascot">
+            <div class="mascot-instructions">
+              Move your cursor over the mascot
+            </div>
+            <div class="mascot" id="mascot">
+              <div class="mascot-face" aria-hidden="true">
+                <span class="eye"></span>
+                <span class="eye"></span>
+                <span class="mouth"></span>
+              </div>
+              <div class="mascot-bob" aria-hidden="true"></div>
+              <div class="mascot-name">Swapnil</div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <!-- Popup overlay (loads popup.html in an iframe) -->
+    <div class="popup-overlay" id="popupOverlay" aria-hidden="true">
+      <div
+        class="popup-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Service request"
+      >
+        <div class="popup-modal-top">
+          <div class="popup-modal-title">Service Request</div>
+          <button
+            class="popup-close"
+            type="button"
+            id="popupCloseBtn"
+            aria-label="Close popup"
+          >
+            ✕
+          </button>
+        </div>
+        <iframe
+          id="popupFrame"
+          title="Service Request Form"
+          src="about:blank"
+          loading="lazy"
+        ></iframe>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

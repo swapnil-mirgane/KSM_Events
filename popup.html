@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Service Request</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <!-- This file is loaded inside an iframe popup -->
+    <div class="popup-shell">
+      <div class="popup-header">
+        <div class="popup-title">Services Request</div>
+        <div class="popup-sub" id="popupSub">Tell us about your event</div>
+      </div>
+
+      <form class="popup-form" id="popupForm">
+        <div class="row">
+          <label>
+            <span>Your Name</span>
+            <input type="text" name="name" placeholder="Swapnil" required />
+          </label>
+          <label>
+            <span>Email</span>
+            <input
+              type="email"
+              name="email"
+              placeholder="you@example.com"
+              required
+            />
+          </label>
+        </div>
+
+        <label>
+          <span>Event Details</span>
+          <textarea
+            name="details"
+            rows="4"
+            placeholder="Share date, location, and guest count..."
+            required
+          ></textarea>
+        </label>
+
+        <div class="row">
+          <label>
+            <span>Budget (₹)</span>
+            <input type="number" name="budget" placeholder="50000" min="0" />
+          </label>
+          <label>
+            <span>Preferred Date</span>
+            <input type="date" name="date" />
+          </label>
+        </div>
+
+        <div class="actions">
+          <button class="btn" type="submit">Submit Request</button>
+          <button class="btn btn-ghost" type="button" id="closeBtn">
+            Close
+          </button>
+        </div>
+
+        <div class="status" id="status" role="status" aria-live="polite"></div>
+      </form>
+    </div>
+
+    <script>
+      // Allow parent to set the chosen service type
+      function getServiceFromURL() {
+        const params = new URLSearchParams(window.location.search);
+        return params.get("service") || "";
+      }
+      const service = getServiceFromURL();
+      const sub = document.getElementById("popupSub");
+      if (service) {
+        const nice = service
+          .split("-")
+          .map((s) => s.charAt(0).toUpperCase() + s.slice(1))
+          .join(" ");
+        sub.textContent = `Selected: ${nice}`;
+      }
+
+      // Close button communicates to parent
+      document.getElementById("closeBtn").addEventListener("click", () => {
+        parent.postMessage({ type: "close-popup" }, "*");
+      });
+
+      // Submit: simulate collection and tell parent
+      document.getElementById("popupForm").addEventListener("submit", (e) => {
+        e.preventDefault();
+        const fd = new FormData(e.target);
+        const payload = Object.fromEntries(fd.entries());
+        payload.service = service;
+
+        document.getElementById("status").textContent = "Submitting...";
+        // Simulate success
+        setTimeout(() => {
+          document.getElementById("status").textContent =
+            "Request sent! (Demo)";
+          parent.postMessage({ type: "popup-submitted", payload }, "*");
+        }, 600);
+      });
+    </script>
+  </body>
+</html>

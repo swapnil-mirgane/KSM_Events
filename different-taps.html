@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EventSphere - Different Tabs</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .tabs-demo{padding:22px 0 50px;}
+    .tabs-wrap{border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);border-radius:18px;padding:12px;}
+    .tab-buttons{display:flex;gap:10px;flex-wrap:wrap;}
+    .tab-btn{padding:10px 12px;border-radius:14px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.05);color:rgba(234,240,255,.9);cursor:pointer;transition:.18s;}
+    .tab-btn.active{border-color:rgba(124,58,237,.65);background:linear-gradient(135deg, rgba(124,58,237,.35), rgba(34,211,238,.12));}
+    .tab-panel{margin-top:14px;display:none;}
+    .tab-panel.active{display:block;animation:fadeUp .4s ease both;}
+    .tab-panel p{color:rgba(234,240,255,.72);margin:0;max-width:80ch;}
+  </style>
+</head>
+<body>
+  <div class="bg" aria-hidden="true">
+    <span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span><span class="grid"></span>
+  </div>
+
+  <header class="header">
+    <nav class="nav">
+      <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">✦</span><span class="brand-text">EventSphere</span></a>
+    </nav>
+  </header>
+
+  <main class="tabs-demo">
+    <div class="tabs-wrap">
+      <h2 style="margin:0 0 12px;">Different Tabs Demo</h2>
+      <div class="tab-buttons" role="tablist" aria-label="Event Tabs">
+        <button class="tab-btn active" type="button" data-tab="home">Home</button>
+        <button class="tab-btn" type="button" data-tab="about">About</button>
+        <button class="tab-btn" type="button" data-tab="services">Services</button>
+        <button class="tab-btn" type="button" data-tab="contact">Contat ous</button>
+      </div>
+      <div class="tab-panel active" data-panel="home">
+        <p>Welcome to EventSphere. Use the navigation tabs to explore the site sections.</p>
+      </div>
+      <div class="tab-panel" data-panel="about">
+        <p>We plan, design, and execute events with smooth coordination and creative themes.</p>
+      </div>
+      <div class="tab-panel" data-panel="services">
+        <p>Corporate Event, Function Event, Party Event — pick your style and submit a request.</p>
+      </div>
+      <div class="tab-panel" data-panel="contact">
+        <p>Send your details and we’ll respond with an event plan and quote.</p>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const btns = Array.from(document.querySelectorAll('.tab-btn'));
+    const panels = Array.from(document.querySelectorAll('.tab-panel'));
+    btns.forEach(b => {
+      b.addEventListener('click', () => {
+        btns.forEach(x=>x.classList.toggle('active', x===b));
+        const tab = b.getAttribute('data-tab');
+        panels.forEach(p=>p.classList.toggle('active', p.getAttribute('data-panel')===tab));
+      });
